@@ -21,6 +21,7 @@
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
+
         <activity android:name=".MainActivity">
 
             <intent-filter>

@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         txv_info = findViewById(R.id.txv_info);
+
+
+        startService(new Intent(this, NotificationReceiver.class));
     }
 
     private AlertDialog buildNotificationServiceAlertDialog(){
