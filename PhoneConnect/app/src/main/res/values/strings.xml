@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PhoneConnect</string>
+    <string name="service_name">NotificationReceiver</string>
 </resources>

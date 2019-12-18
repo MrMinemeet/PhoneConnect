@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfd2a7cc-ba19-4dce-bc6d-207b7ece59ac" name="Default Changelist" comment="" />
+    <list default="true" id="dfd2a7cc-ba19-4dce-bc6d-207b7ece59ac" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesktopClientCli/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesktopClientCli/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesktopClientCli/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesktopClientCli/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/DesktopClientCli.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/DesktopClientCli.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/Debug/netcoreapp3.1/DesktopClientCli.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/DesktopClientCli.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/DesktopClientCli.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/DesktopClientCli.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/DesktopClientCli.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/DesktopClientCli.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/DesktopClientCli.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesktopClientCli/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/DesktopClientCli/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PhoneConnect/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PhoneConnect/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PhoneConnect/app/src/main/java/net/projectwhitespace/phoneconnect/NotificationReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PhoneConnect/app/src/main/java/net/projectwhitespace/phoneconnect/NotificationReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PhoneConnect/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PhoneConnect/app/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +51,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration name="DesktopClientCli" type="DotNetProject" factoryName=".NET Project">
@@ -75,41 +102,52 @@
       <option name="presentableId" value="Default" />
       <updated>1576342335131</updated>
       <workItem from="1576342339347" duration="5470000" />
+      <workItem from="1576691470669" duration="3197000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="420" key="GridCell.Tab.0.bottom" timestamp="1576351734557">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1874" height="219" key="GridCell.Tab.0.bottom" timestamp="1576694321141">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="420" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1576351734557" />
-    <state width="1877" height="420" key="GridCell.Tab.0.center" timestamp="1576351734557">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1874" height="219" key="GridCell.Tab.0.bottom/1920.0.1920.1080/3840.0.1920.1080/0.0.1920.1048@1920.0.1920.1080" timestamp="1576694321141" />
+    <state width="1874" height="219" key="GridCell.Tab.0.center" timestamp="1576694321141">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="420" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1576351734557" />
-    <state width="1877" height="420" key="GridCell.Tab.0.left" timestamp="1576351734557">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1874" height="219" key="GridCell.Tab.0.center/1920.0.1920.1080/3840.0.1920.1080/0.0.1920.1048@1920.0.1920.1080" timestamp="1576694321141" />
+    <state width="1874" height="219" key="GridCell.Tab.0.left" timestamp="1576694321141">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="420" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1576351734557" />
-    <state width="1877" height="420" key="GridCell.Tab.0.right" timestamp="1576351734557">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1874" height="219" key="GridCell.Tab.0.left/1920.0.1920.1080/3840.0.1920.1080/0.0.1920.1048@1920.0.1920.1080" timestamp="1576694321141" />
+    <state width="1874" height="219" key="GridCell.Tab.0.right" timestamp="1576694321141">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="420" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1576351734557" />
+    <state width="1874" height="219" key="GridCell.Tab.0.right/1920.0.1920.1080/3840.0.1920.1080/0.0.1920.1048@1920.0.1920.1080" timestamp="1576694321141" />
+    <state x="2377" y="161" key="SettingsEditor" timestamp="1576691506482">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2377" y="161" key="SettingsEditor/1920.0.1920.1080/3840.0.1920.1080/0.0.1920.1048@1920.0.1920.1080" timestamp="1576691506482" />
   </component>
 </project>

@@ -15,6 +15,6 @@ public class Notification {
 
         Notification other = (Notification)obj;
 
-        return title.equals(other.title) && message.equals(other.message);
+        return title.equals(other.title) && message.equals(other.message) && time.equals(other.time);
     }
 }

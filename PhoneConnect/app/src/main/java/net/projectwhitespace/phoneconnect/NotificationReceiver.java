@@ -1,9 +1,11 @@
 package net.projectwhitespace.phoneconnect;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
@@ -15,10 +17,18 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class NotificationReceiver extends NotificationListenerService {
+
+    private static final String TAG = "NotificationReceiver";
+
+
     Context context;
 
     private static Notification lastNotification = null;
 
+    @Override
+    public IBinder onBind(Intent intent) {
+        return super.onBind(intent);
+    }
 
     @Override
     public void onCreate() {
@@ -29,6 +39,9 @@ public class NotificationReceiver extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
+        Log.d(TAG, "Notification Received!");
+
+
         final PackageManager pm = getApplicationContext().getPackageManager();
         ApplicationInfo ai;
         try {
@@ -72,6 +85,7 @@ public class NotificationReceiver extends NotificationListenerService {
             }
         });
 
+
         new Thread(){
             @Override
             public void run() {
@@ -88,7 +102,7 @@ public class NotificationReceiver extends NotificationListenerService {
 
                 }
                 catch(Exception ex){
-                    Log.e("PhoneConnect", ex.getMessage());
+                    Log.e(TAG, ex.getMessage());
                 }
                 finally{
                     if(bw!=null){
@@ -96,7 +110,7 @@ public class NotificationReceiver extends NotificationListenerService {
                             bw.close();
                         }
                         catch(Exception ex){
-                            Log.d("EXCEPTION", ex.getMessage());
+                            Log.d(TAG, ex.getMessage());
                         }
                     }
                     if(socket!=null){
@@ -104,7 +118,7 @@ public class NotificationReceiver extends NotificationListenerService {
                             socket.close();
                         }
                         catch(Exception ex){
-                            Log.d("EXCEPTION", ex.getMessage());
+                            Log.d(TAG, ex.getMessage());
                         }
                     }
                 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Net.Security;
 using System.Net.Sockets;
 using System.Threading;
 
@@ -48,10 +49,7 @@ namespace DesktopClientCli
             }
             finally
             {
-                if(tcpListener != null)
-                {
-                    tcpListener.Stop();
-                }
+                tcpListener?.Stop();
             }
         }
 
@@ -64,7 +62,7 @@ namespace DesktopClientCli
 
             try
             {
-                NetworkStream ns = tcpClient.GetStream();
+                NetworkStream ns = tcpClient?.GetStream();
                 sr = new StreamReader(ns);
 
                 Console.WriteLine("Request from: " + ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address.ToString());
@@ -81,11 +79,8 @@ namespace DesktopClientCli
             }
             finally
             {
-                if(sw != null)
-                {
-                    sw.Close();
-                }
-                tcpClient.Close();
+                sr?.Close();
+                tcpClient?.Close();
 
                 Console.WriteLine("Client getrennt");
 

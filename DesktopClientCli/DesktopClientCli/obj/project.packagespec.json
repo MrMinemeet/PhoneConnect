@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "G:\\SynologyDrive\\ProjectWhitespace\\Projekte\\PhoneConnect\\DesktopClientCli\\DesktopClientCli\\DesktopClientCli.csproj",
+    "projectUniqueName": "/media/alex/1TB1/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/DesktopClientCli.csproj",
     "projectName": "DesktopClientCli",
-    "projectPath": "G:\\SynologyDrive\\ProjectWhitespace\\Projekte\\PhoneConnect\\DesktopClientCli\\DesktopClientCli\\DesktopClientCli.csproj",
-    "outputPath": "G:\\SynologyDrive\\ProjectWhitespace\\Projekte\\PhoneConnect\\DesktopClientCli\\DesktopClientCli\\obj\\",
+    "projectPath": "/media/alex/1TB1/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/DesktopClientCli.csproj",
+    "outputPath": "/media/alex/1TB1/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/obj/",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"
@@ -40,7 +40,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
     }
   }
 }
