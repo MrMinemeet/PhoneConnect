@@ -13,6 +13,8 @@ import android.util.Log;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -60,10 +62,10 @@ public class NotificationReceiver extends NotificationListenerService {
         final Date time = Calendar.getInstance().getTime();
 
         Notification notification = new Notification();
-        notification.title = title;
-        notification.key = key;
-        notification.message = text;
-        notification.time = time;
+        notification.setTitle(title);
+        notification.setKey(key);
+        notification.setMessage(text);
+        notification.setTime(time);
 
         if(lastNotification != null){
             if(lastNotification.equals(notification)){
@@ -81,7 +83,22 @@ public class NotificationReceiver extends NotificationListenerService {
         MainActivity.txv_info.post(new Runnable() {
             @Override
             public void run() {
-                MainActivity.txv_info.setText("Name: " + applicationName + "\nTitle: " + title + "\nText: " + text + "\nTime: " + time.getTime());
+                StringBuilder sb = new StringBuilder();
+                sb.append("Name: ");
+                sb.append(applicationName);
+
+                sb.append("\nTitle: ");
+                sb.append(title);
+
+                sb.append("\nText: ");
+                sb.append(text);
+
+                sb.append("\nDatum/Zeit: ");
+                DateFormat dateFormat = new SimpleDateFormat("dd.MM hh:mm:ss");
+                String strDate = dateFormat.format(time);
+                sb.append(strDate);
+
+                MainActivity.txv_info.setText(sb.toString());
             }
         });
 
@@ -93,7 +110,7 @@ public class NotificationReceiver extends NotificationListenerService {
                 BufferedWriter bw = null;
 
                 try{
-                    socket = new Socket("192.168.1.22", 5000);
+                    socket = new Socket("192.168.1.172",5000);
 
                     bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
                     bw.write("Package: " + applicationName + "\n");

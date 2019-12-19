@@ -18,7 +18,7 @@ namespace DesktopClientCli
                 string localIP="Test";
                 using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
                 {
-                    socket.Connect("192.168.1.22", 5000);
+                    socket.Connect("192.168.1.172", 5000);
                     IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
                     localIP = endPoint.Address.ToString();
                 }

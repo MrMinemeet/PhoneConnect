@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        // Check if Notification Listener Service Permissions have been Granted
         if (!isNotificationServiceEnabled()) {
             AlertDialog enableNotificationListenerAlertDialog = buildNotificationServiceAlertDialog();
             enableNotificationListenerAlertDialog.show();
@@ -37,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         txv_info = findViewById(R.id.txv_info);
 
-
+        // Start notificaiton listener service (Mainfest doesn't always work)
         startService(new Intent(this, NotificationReceiver.class));
     }
 
