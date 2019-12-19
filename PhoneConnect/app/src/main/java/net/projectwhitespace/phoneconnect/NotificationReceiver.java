@@ -37,6 +37,8 @@ public class NotificationReceiver extends NotificationListenerService {
 
         super.onCreate();
         context = getApplicationContext();
+
+
     }
 
     @Override
@@ -110,7 +112,7 @@ public class NotificationReceiver extends NotificationListenerService {
                 BufferedWriter bw = null;
 
                 try{
-                    socket = new Socket("192.168.1.172",5000);
+                    socket = new Socket("192.168.43.241",5000);
 
                     bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
                     bw.write("Package: " + applicationName + "\n");

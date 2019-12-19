@@ -12,13 +12,13 @@ namespace DesktopClientCli
         static void Main(string[] args)
         {
             TcpListener tcpListener = null;
-
+            Console.WriteLine(Environment.MachineName);
             try
             {
                 string localIP="Test";
                 using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
                 {
-                    socket.Connect("192.168.1.172", 5000);
+                    socket.Connect("192.168.43.241", 5000);
                     IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
                     localIP = endPoint.Address.ToString();
                 }
