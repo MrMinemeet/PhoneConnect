@@ -15,6 +15,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS;
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Check if Notification Listener Service Permissions have been Granted
         if (!isNotificationServiceEnabled()) {
+            // If not Granted then make Alert Dialog to request it
             AlertDialog enableNotificationListenerAlertDialog = buildNotificationServiceAlertDialog();
             enableNotificationListenerAlertDialog.show();
         }
@@ -47,19 +49,20 @@ public class MainActivity extends AppCompatActivity {
 
     private AlertDialog buildNotificationServiceAlertDialog(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Notif-service");
-        alertDialogBuilder.setMessage("I need access plx");
-        alertDialogBuilder.setPositiveButton("allow",
+        alertDialogBuilder.setTitle("Notification Permission needed");
+        alertDialogBuilder.setMessage("To work properly this app requires permissions to get incoming notifications.");
+        alertDialogBuilder.setPositiveButton("Allow",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         startActivity(new Intent(ACTION_NOTIFICATION_LISTENER_SETTINGS));
                     }
                 });
-        alertDialogBuilder.setNegativeButton("no",
+        alertDialogBuilder.setNegativeButton("Deny",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // If you choose to not enable the notification listener
                         // the app. will not work as expected
+                        Toast.makeText(MainActivity.this , "App won't work properly without this permission!", Toast.LENGTH_LONG).show();
                     }
                 });
         return(alertDialogBuilder.create());

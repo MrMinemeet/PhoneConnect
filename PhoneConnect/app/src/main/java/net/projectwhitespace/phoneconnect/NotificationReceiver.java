@@ -24,9 +24,6 @@ public class NotificationReceiver extends NotificationListenerService {
 
 
     Context context;
-
-    private static Notification lastNotification = null;
-
     @Override
     public IBinder onBind(Intent intent) {
         return super.onBind(intent);
@@ -34,18 +31,15 @@ public class NotificationReceiver extends NotificationListenerService {
 
     @Override
     public void onCreate() {
-
         super.onCreate();
         context = getApplicationContext();
-
-
     }
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
         Log.d(TAG, "Notification Received!");
 
-
+        // Gather information
         final PackageManager pm = getApplicationContext().getPackageManager();
         ApplicationInfo ai;
         try {
@@ -57,31 +51,13 @@ public class NotificationReceiver extends NotificationListenerService {
 
         Bundle extras = sbn.getNotification().extras;
 
-
+        // Put information into finals to show them in UI using post
         final String title = extras.getString("android.title");
         final String text = extras.getCharSequence("android.text").toString();
         final String key = sbn.getKey();
         final Date time = Calendar.getInstance().getTime();
 
-        Notification notification = new Notification();
-        notification.setTitle(title);
-        notification.setKey(key);
-        notification.setMessage(text);
-        notification.setTime(time);
-
-        if(lastNotification != null){
-            if(lastNotification.equals(notification)){
-                return;
-            }
-            else{
-                lastNotification = notification;
-            }
-        }
-
-        if(lastNotification == null){
-            lastNotification = notification;
-        }
-
+        // Update Text in UI using post
         MainActivity.txv_info.post(new Runnable() {
             @Override
             public void run() {
@@ -104,7 +80,7 @@ public class NotificationReceiver extends NotificationListenerService {
             }
         });
 
-
+        // Thread to send notification information to PC
         new Thread(){
             @Override
             public void run() {
