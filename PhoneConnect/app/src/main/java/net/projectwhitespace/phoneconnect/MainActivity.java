@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Notification Permission needed");
         alertDialogBuilder.setMessage("To work properly this app requires permissions to get incoming notifications.");
+        alertDialogBuilder.setCancelable(false);
         alertDialogBuilder.setPositiveButton("Allow",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
