@@ -15,6 +15,9 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Start notificaiton listener service (Mainfest doesn't always work)
         startService(new Intent(this, NotificationReceiver.class));
+
     }
 
     private AlertDialog buildNotificationServiceAlertDialog(){
@@ -69,4 +73,27 @@ public class MainActivity extends AppCompatActivity {
     private boolean isNotificationServiceEnabled() {
         return NotificationManagerCompat.getEnabledListenerPackages(this).contains(getPackageName());
     }
+
+    // Set Menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    // Set menu actions
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.menu_open_notification_permission:
+                startActivity(new Intent(ACTION_NOTIFICATION_LISTENER_SETTINGS));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
 }
