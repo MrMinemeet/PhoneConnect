@@ -9,37 +9,41 @@ namespace DesktopClientCli
 {
     class Program
     {
+        public const string SERVER_IP = "192.168.1.22";
+        public const int SERVER_PORT = 5000;
+    
+    
         static void Main(string[] args)
         {
             TcpListener tcpListener = null;
             Console.WriteLine(Environment.MachineName);
             try
             {
-                string localIP="Test";
+                string localIP;
                 using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
                 {
-                    socket.Connect("192.168.43.241", 5000);
+                    socket.Connect(SERVER_IP, SERVER_PORT);
                     IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
                     localIP = endPoint.Address.ToString();
                 }
-                if (localIP.Equals("Test"))
+                if (!localIP.Equals(SERVER_IP))
                 {
-                    Console.WriteLine("Ip-Adress could not be retrieved");
+                    Console.WriteLine("Ip-Address could not be retrieved");
                     Console.ReadLine();
                     return;
                 }
-                // tcpListener new TcpListener(Dos.GetHostAddresses("waser.htl-braunau.at")[0], 5000);
+                
                 tcpListener = new TcpListener(IPAddress.Parse(localIP), 5000);
 
                 tcpListener.Start();
-                Console.WriteLine("Server gestartet auf " + localIP + " mit Port 5000...");
+                Console.WriteLine("Server started! IP: " + SERVER_IP + " Port: " + SERVER_PORT);
 
                 while(true)
                 {
-                    // Blocking Call, Warten, dass sich ein Client verbindet
+                    // Blocking Call, waiting until a client connects
                     TcpClient tcpClient = tcpListener.AcceptTcpClient(); 
                     
-                    // Thread starten, in diesem wird die Kommunikation mit diesem Client abgewickelt
+                    // Start thread that handles communitcation with client
                     new Thread(new ParameterizedThreadStart(ClientThread)).Start(tcpClient);
                 }
             }
@@ -64,7 +68,8 @@ namespace DesktopClientCli
             {
                 NetworkStream ns = tcpClient?.GetStream();
                 sr = new StreamReader(ns);
-
+                
+                // Receiving the notification data
                 Console.WriteLine("Request from: " + ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address.ToString());
                 string line = sr.ReadLine();
                 Console.WriteLine(line);
@@ -82,7 +87,7 @@ namespace DesktopClientCli
                 sr?.Close();
                 tcpClient?.Close();
 
-                Console.WriteLine("Client getrennt");
+                Console.WriteLine("Client disconnected");
 
                 Console.WriteLine("\n\n\n\n");
             }

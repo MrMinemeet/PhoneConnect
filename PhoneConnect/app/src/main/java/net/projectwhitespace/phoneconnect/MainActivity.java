@@ -1,6 +1,7 @@
 package net.projectwhitespace.phoneconnect;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
@@ -21,10 +22,6 @@ import static android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
-
-    public static boolean isActive = true;
-
     public static TextView txv_info;
 
     @Override
@@ -37,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         // Check if Notification Listener Service Permissions have been Granted
         if (!isNotificationServiceEnabled()) {
             // If not Granted then make Alert Dialog to request it
-            AlertDialog enableNotificationListenerAlertDialog = buildNotificationServiceAlertDialog();
+            final AlertDialog enableNotificationListenerAlertDialog = buildNotificationServiceAlertDialog();
             enableNotificationListenerAlertDialog.show();
         }
 
@@ -69,21 +66,7 @@ public class MainActivity extends AppCompatActivity {
         return(alertDialogBuilder.create());
     }
 
-    boolean isNotificationServiceEnabled(){
-        String pkgName = getPackageName();
-        final String flat = Settings.Secure.getString(getContentResolver(),
-                ENABLED_NOTIFICATION_LISTENERS);
-        if (!TextUtils.isEmpty(flat)) {
-            final String[] names = flat.split(":");
-            for (int i = 0; i < names.length; i++) {
-                final ComponentName cn = ComponentName.unflattenFromString(names[i]);
-                if (cn != null) {
-                    if (TextUtils.equals(pkgName, cn.getPackageName())) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
+    private boolean isNotificationServiceEnabled() {
+        return NotificationManagerCompat.getEnabledListenerPackages(this).contains(getPackageName());
     }
 }

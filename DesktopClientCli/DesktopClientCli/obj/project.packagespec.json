@@ -1,19 +1,15 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\Alex\\Documents\\GitHub\\PhoneConnect\\DesktopClientCli\\DesktopClientCli\\DesktopClientCli.csproj",
+    "projectUniqueName": "/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/DesktopClientCli.csproj",
     "projectName": "DesktopClientCli",
-    "projectPath": "C:\\Users\\Alex\\Documents\\GitHub\\PhoneConnect\\DesktopClientCli\\DesktopClientCli\\DesktopClientCli.csproj",
-    "outputPath": "C:\\Users\\Alex\\Documents\\GitHub\\PhoneConnect\\DesktopClientCli\\DesktopClientCli\\obj\\",
+    "projectPath": "/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/DesktopClientCli.csproj",
+    "outputPath": "/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/obj/",
     "projectStyle": "PackageReference",
-    "fallbackFolders": [
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-    ],
     "originalTargetFrameworks": [
       "netcoreapp3.0"
     ],
     "sources": {
-      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
       "https://api.nuget.org/v3/index.json": {}
     },
     "frameworks": {
@@ -38,7 +34,27 @@
         "net48"
       ],
       "assetTargetFallback": true,
-      "warn": true
+      "warn": true,
+      "downloadDependencies": [
+        {
+          "name": "Microsoft.AspNetCore.App.Ref",
+          "version": "[3.0.1, 3.0.1]"
+        },
+        {
+          "name": "Microsoft.NETCore.App.Host.linux-x64",
+          "version": "[3.0.1, 3.0.1]"
+        },
+        {
+          "name": "Microsoft.NETCore.App.Ref",
+          "version": "[3.0.0, 3.0.0]"
+        }
+      ],
+      "frameworkReferences": {
+        "Microsoft.NETCore.App": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
     }
   }
 }
