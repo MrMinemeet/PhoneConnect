@@ -4,4 +4,11 @@
 
 
 # PhoneConnect
- Connect your Phone to your PC and receive notifications
+ Connect your Phone to your PC and get alerted when a new notification arrives or transfer files between your phone and pc with ease.
+
+## Status:
+* Notification transfer to PC is currently being implemented
+
+
+## Thought
+Out thought is to get this app a bit like KDE Connect or the Apple Notification and File Transfer "System".
