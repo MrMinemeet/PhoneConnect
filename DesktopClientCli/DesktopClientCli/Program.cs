@@ -43,7 +43,7 @@ namespace DesktopClientCli
                     // Blocking Call, waiting until a client connects
                     TcpClient tcpClient = tcpListener.AcceptTcpClient(); 
                     
-                    // Start thread that handles communitcation with client
+                    // Start thread that handles communication with client
                     new Thread(new ParameterizedThreadStart(ClientThread)).Start(tcpClient);
                 }
             }
@@ -60,8 +60,6 @@ namespace DesktopClientCli
         static void ClientThread(object o)
         {
             TcpClient tcpClient = o as TcpClient;
-
-            StreamWriter sw = null;
             StreamReader sr = null;
 
             try
