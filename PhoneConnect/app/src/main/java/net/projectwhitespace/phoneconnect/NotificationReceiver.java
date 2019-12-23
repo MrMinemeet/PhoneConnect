@@ -10,8 +10,10 @@ import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -87,14 +89,48 @@ public class NotificationReceiver extends NotificationListenerService {
                 Socket socket = null;
                 BufferedWriter bw = null;
 
+                Settings settings = Settings.getInstance();
+
+
                 try{
-                    socket = new Socket("192.168.1.22",5000);
+                    socket = new Socket(settings.PCip,5000);
 
                     bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-                    bw.write("Package: " + applicationName + "\n");
-                    bw.write("Title: " + title + "\n");
-                    bw.write("Text: " + text + "\n");
 
+
+                    StringBuilder textToSendSB = new StringBuilder();
+
+                    textToSendSB.append("Package: ");
+                    textToSendSB.append(applicationName);
+                    textToSendSB.append("\nTitle: ");
+                    textToSendSB.append(title);
+                    textToSendSB.append("\nText: ");
+                    textToSendSB.append(text);
+
+                    // Encrypt data using CryptLib
+
+
+
+                    String EncryptedData = "-1";
+                    try{
+                        CryptLib _crypt = new CryptLib();
+                        String plainText = textToSendSB.toString();
+                        String key = CryptLib.SHA256(settings.KEY, 32); //32 bytes = 256 bit
+                        String iv = CryptLib.generateRandomIV(16); //16 bytes = 128 bit
+                        EncryptedData = _crypt.encrypt(plainText, key, iv); //encrypt
+                        Log.d(TAG,"encrypted text=" + EncryptedData);
+
+                    }catch(Exception e){
+                        Log.e(TAG, e.getMessage());
+                    }
+
+                    // Send Encrypted data
+                    if(EncryptedData != "-1") {
+                        bw.write(EncryptedData);
+                    }
+                    else {
+                        Log.e(TAG, "Encryption failed!");
+                    }
                 }
                 catch(Exception ex){
                     Log.e(TAG, ex.getMessage());

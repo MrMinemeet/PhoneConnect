@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using System.Net.Security;
 using System.Net.Sockets;
 using System.Threading;
 
@@ -69,12 +68,23 @@ namespace DesktopClientCli
                 
                 // Receiving the notification data
                 Console.WriteLine("Request from: " + ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address.ToString());
+                // Receive Encrypted data String
                 string line = sr.ReadLine();
-                Console.WriteLine(line);
-                line = sr.ReadLine();
-                Console.WriteLine(line);
-                line = sr.ReadLine();
-                Console.WriteLine(line);
+                Console.WriteLine("Encrypted Test: " + line);
+                
+                // Decrypt data
+                CryptLib crypt = new CryptLib();
+                
+                String iv = CryptLib.GenerateRandomIV (16); //16 bytes = 128 bits
+
+                String KEY = "1234567890";
+                string decryptKey = CryptLib.getHashSha256(KEY, 31);
+                Console.WriteLine("Plaintext: " + crypt.decrypt(line,decryptKey,iv));
+                
+                
+                
+
+
             }
             catch(Exception ex)
             {

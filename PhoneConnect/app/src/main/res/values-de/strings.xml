@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneConnect</string>
+    <string name="create_new_link">Neu Verbinden</string>
+    <string name="open_notification_permissions">Berechigungseinstellungen öffnen</string>
+</resources>

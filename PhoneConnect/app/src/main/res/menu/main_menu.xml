@@ -6,6 +6,8 @@
         android:id="@+id/menu_open_notification_permission"
         android:checkable="false"
         android:icon="@drawable/ic_perm_device_information_24px"
-        android:title="Open Notification Permissions"
-        app:showAsAction="ifRoom" />
+        android:title="@string/open_notification_permissions" />
+    <item
+        android:id="@+id/menu_create_new_link"
+        android:title="@string/create_new_link" />
 </menu>
