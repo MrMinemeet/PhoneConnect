@@ -9,14 +9,3 @@ C:/Users/Alex/Documents/GitHub/PhoneConnect/DesktopClientCli/DesktopClientCli/ob
 C:/Users/Alex/Documents/GitHub/PhoneConnect/DesktopClientCli/DesktopClientCli/obj/Debug/netcoreapp3.0/DesktopClientCli.AssemblyInfo.cs
 C:/Users/Alex/Documents/GitHub/PhoneConnect/DesktopClientCli/DesktopClientCli/obj/Debug/netcoreapp3.0/DesktopClientCli.dll
 C:/Users/Alex/Documents/GitHub/PhoneConnect/DesktopClientCli/DesktopClientCli/obj/Debug/netcoreapp3.0/DesktopClientCli.pdb
-/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/bin/Debug/netcoreapp3.0/DesktopClientCli
-/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/bin/Debug/netcoreapp3.0/DesktopClientCli.deps.json
-/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/bin/Debug/netcoreapp3.0/DesktopClientCli.runtimeconfig.json
-/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/bin/Debug/netcoreapp3.0/DesktopClientCli.runtimeconfig.dev.json
-/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/bin/Debug/netcoreapp3.0/DesktopClientCli.dll
-/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/bin/Debug/netcoreapp3.0/DesktopClientCli.pdb
-/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/obj/Debug/netcoreapp3.0/DesktopClientCli.csprojAssemblyReference.cache
-/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/obj/Debug/netcoreapp3.0/DesktopClientCli.AssemblyInfoInputs.cache
-/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/obj/Debug/netcoreapp3.0/DesktopClientCli.AssemblyInfo.cs
-/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/obj/Debug/netcoreapp3.0/DesktopClientCli.dll
-/media/alex/1TB/SynologyDrive/ProjectWhitespace/Projekte/PhoneConnect/DesktopClientCli/DesktopClientCli/obj/Debug/netcoreapp3.0/DesktopClientCli.pdb

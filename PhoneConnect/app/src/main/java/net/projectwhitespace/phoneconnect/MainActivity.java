@@ -21,11 +21,16 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+
 import static android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS;
 
 public class MainActivity extends AppCompatActivity {
 
     public static TextView txv_info;
+
+    static final String APP_TAG = "PhoneConnect";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,42 @@ public class MainActivity extends AppCompatActivity {
 
         // Start notificaiton listener service (Mainfest doesn't always work)
         startService(new Intent(this, NotificationReceiver.class));
+
+
+
+
+        // Thread to receive Broadcast information for IP update
+        new Thread(){
+            @Override
+            public void run(){
+                byte[] lMsg = new byte[4096];
+                DatagramPacket dp = new DatagramPacket(lMsg, lMsg.length);
+                DatagramSocket ds = null;
+
+                try
+                {
+                    ds = new DatagramSocket(25001);
+
+                    while(true)
+                    {
+                        ds.receive(dp);
+
+                        Log.d(APP_TAG, new String(lMsg, 0, dp.getLength()));
+                    }
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+                finally
+                {
+                    if (ds != null)
+                    {
+                        ds.close();
+                    }
+                }
+            }
+        }.start();
 
     }
 

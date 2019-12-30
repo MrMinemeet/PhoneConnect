@@ -2,40 +2,38 @@
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading;
 
 namespace DesktopClientCli
 {
+    
+    
+    
     class Program
     {
         public const string SERVER_IP = "192.168.1.22";
         public const int SERVER_PORT = 5000;
     
+        public const int BROADCAST_PORT = 25001;
+    
     
         static void Main(string[] args)
         {
+            // Start Broadcast Thread
+            Thread broadcastThread = new Thread(UpdateSenderBroadcastThread);
+            broadcastThread.Start();
+            
+            
+            
             TcpListener tcpListener = null;
-            Console.WriteLine(Environment.MachineName);
+            
             try
             {
-                string localIP;
-                using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
-                {
-                    socket.Connect(SERVER_IP, SERVER_PORT);
-                    IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
-                    localIP = endPoint.Address.ToString();
-                }
-                if (!localIP.Equals(SERVER_IP))
-                {
-                    Console.WriteLine("Ip-Address could not be retrieved");
-                    Console.ReadLine();
-                    return;
-                }
-                
-                tcpListener = new TcpListener(IPAddress.Parse(localIP), 5000);
+                tcpListener = new TcpListener(IPAddress.Any, 25000);
 
                 tcpListener.Start();
-                Console.WriteLine("Server started! IP: " + SERVER_IP + " Port: " + SERVER_PORT);
+                Console.WriteLine("Server started! Port: " + SERVER_PORT);
 
                 while(true)
                 {
@@ -56,6 +54,23 @@ namespace DesktopClientCli
             }
         }
 
+        static void UpdateSenderBroadcastThread()
+        {
+            // Sends a Broadcast every 5 sec. so that Client can update IP
+            
+            
+            UdpClient udpClient = new UdpClient();
+            udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, BROADCAST_PORT));
+
+            while (true)
+            {
+                var data = Encoding.UTF8.GetBytes("IP UPDATE BROADCAST!");
+                udpClient.Send(data, data.Length, IPAddress.Broadcast.ToString(), BROADCAST_PORT);
+                Console.WriteLine("Broadcast sent");
+                Thread.Sleep(5000);
+            }
+        }
+
         static void ClientThread(object o)
         {
             TcpClient tcpClient = o as TcpClient;
@@ -70,8 +85,11 @@ namespace DesktopClientCli
                 Console.WriteLine("Request from: " + ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address.ToString());
                 // Receive Encrypted data String
                 string line = sr.ReadLine();
-                Console.WriteLine("Encrypted Test: " + line);
                 
+                Console.WriteLine("Plain text: \n" + line);
+                
+                /*
+                Console.WriteLine("Encrypted Test: " + line);
                 // Decrypt data
                 CryptLib crypt = new CryptLib();
                 
@@ -80,7 +98,7 @@ namespace DesktopClientCli
                 String KEY = "1234567890";
                 string decryptKey = CryptLib.getHashSha256(KEY, 31);
                 Console.WriteLine("Plaintext: " + crypt.decrypt(line,decryptKey,iv));
-                
+                */
                 
                 
 

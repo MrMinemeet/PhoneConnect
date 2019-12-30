@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.service.notification.NotificationListenerService;
@@ -12,13 +13,17 @@ import android.util.Log;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class NotificationReceiver extends NotificationListenerService {
 
@@ -74,13 +79,14 @@ public class NotificationReceiver extends NotificationListenerService {
                 sb.append(text);
 
                 sb.append("\nDatum/Zeit: ");
-                DateFormat dateFormat = new SimpleDateFormat("dd.MM hh:mm:ss");
+                DateFormat dateFormat = new SimpleDateFormat("dd.MM hh:mm:ss", Locale.GERMAN);
                 String strDate = dateFormat.format(time);
                 sb.append(strDate);
 
                 MainActivity.txv_info.setText(sb.toString());
             }
         });
+
 
         // Thread to send notification information to PC
         new Thread(){
@@ -93,7 +99,7 @@ public class NotificationReceiver extends NotificationListenerService {
 
 
                 try{
-                    socket = new Socket(settings.PCip,5000);
+                    socket = new Socket(settings.PCip,25000);
 
                     bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
@@ -107,10 +113,10 @@ public class NotificationReceiver extends NotificationListenerService {
                     textToSendSB.append("\nText: ");
                     textToSendSB.append(text);
 
-                    // Encrypt data using CryptLib
 
 
-
+                    /*
+                    // Encrypt data using CryptLib (WIP)
                     String EncryptedData = "-1";
                     try{
                         CryptLib _crypt = new CryptLib();
@@ -131,6 +137,13 @@ public class NotificationReceiver extends NotificationListenerService {
                     else {
                         Log.e(TAG, "Encryption failed!");
                     }
+                    */
+
+                    // Send Plain Text
+
+                    bw.write(textToSendSB.toString());
+
+
                 }
                 catch(Exception ex){
                     Log.e(TAG, ex.getMessage());
