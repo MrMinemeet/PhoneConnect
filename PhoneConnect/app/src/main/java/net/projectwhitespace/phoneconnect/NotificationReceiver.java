@@ -99,7 +99,7 @@ public class NotificationReceiver extends NotificationListenerService {
 
 
                 try{
-                    socket = new Socket(settings.PCip,25000);
+                    socket = new Socket(settings.SERVER_IP,settings.SERVER_PORT);
 
                     bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 

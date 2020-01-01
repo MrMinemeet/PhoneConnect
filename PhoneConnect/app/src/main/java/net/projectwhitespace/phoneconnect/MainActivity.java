@@ -2,18 +2,11 @@ package net.projectwhitespace.phoneconnect;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
 import android.app.AlertDialog;
-import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,6 +24,27 @@ public class MainActivity extends AppCompatActivity {
     public static TextView txv_info;
 
     static final String APP_TAG = "PhoneConnect";
+
+
+    // BROADCAST PATTERN:
+    /*
+     * {Server ID (SHA256)}
+     * {PUBLIC KEY}
+     *
+     *
+     */
+
+    // NOTIFICATION PATTERN:
+    /*
+     * {Appname}
+     * {Title}
+     * {Message}
+     * {Date/Time}
+     */
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,13 +78,22 @@ public class MainActivity extends AppCompatActivity {
 
                 try
                 {
-                    ds = new DatagramSocket(25001);
+                    Settings settings = Settings.getInstance();
+
+
+                    ds = new DatagramSocket(settings.BROADCAST_PORT);
 
                     while(true)
                     {
                         ds.receive(dp);
 
-                        Log.d(APP_TAG, new String(lMsg, 0, dp.getLength()));
+                        String message = new String(dp.getData()).trim();
+                        String broadcast_sender_ip = dp.getAddress().getHostAddress();
+
+                        Log.d(APP_TAG, "Message from " + broadcast_sender_ip + " which was: " + message);
+
+                        settings.SERVER_IP = broadcast_sender_ip;
+
                     }
                 }
                 catch (Exception e)
