@@ -4,10 +4,27 @@
 
     <item
         android:id="@+id/menu_open_notification_permission"
-        android:checkable="false"
         android:icon="@drawable/ic_perm_device_information_24px"
         android:title="@string/open_notification_permissions" />
     <item
         android:id="@+id/menu_create_new_link"
-        android:title="@string/create_new_link" />
+        android:title="@string/create_new_link">
+    </item>
+
+
+    <item android:id="@+id/theme"
+        android:title="@string/Themes" >
+        <menu>
+            <item android:id="@+id/light_theme"
+                android:title="@string/Light_theme" />
+            <item android:id="@+id/dark_theme"
+                android:title="@string/Dark_theme" />
+
+
+            <!--
+            <item android:id="@+id/System"
+                android:title="@string/set_by_system" />
+            -->
+        </menu>
+    </item>
 </menu>

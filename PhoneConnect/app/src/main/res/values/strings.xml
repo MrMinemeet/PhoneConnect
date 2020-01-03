@@ -3,4 +3,9 @@
     <string name="service_name" translatable="false">NotificationReceiver</string>
     <string name="open_notification_permissions">Open Notification Permissions</string>
     <string name="create_new_link">Link to new Device</string>
+    <string name="Dark_theme">Dark Theme</string>
+    <string name="Light_theme">Light Theme</string>
+    <string name="set_by_system">Set by System</string>
+    <string name="Themes">Themes</string>
+    <string name="Theme_set">Theme set</string>
 </resources>

@@ -58,60 +58,78 @@ public class NotificationReceiver extends NotificationListenerService {
 
         Bundle extras = sbn.getNotification().extras;
 
-        // Put information into finals to show them in UI using post
-        final String title = extras.getString("android.title");
-        final String text = extras.getCharSequence("android.text").toString();
-        final String key = sbn.getKey();
-        final Date time = Calendar.getInstance().getTime();
-
-        // Update Text in UI using post
-        MainActivity.txv_info.post(new Runnable() {
-            @Override
-            public void run() {
-                StringBuilder sb = new StringBuilder();
-                sb.append("Name: ");
-                sb.append(applicationName);
-
-                sb.append("\nTitle: ");
-                sb.append(title);
-
-                sb.append("\nText: ");
-                sb.append(text);
-
-                sb.append("\nDatum/Zeit: ");
-                DateFormat dateFormat = new SimpleDateFormat("dd.MM hh:mm:ss", Locale.GERMAN);
-                String strDate = dateFormat.format(time);
-                sb.append(strDate);
-
-                MainActivity.txv_info.setText(sb.toString());
-            }
-        });
+        // Try to get Notification Information
+        String title = "";
+        String text = "";
+        String key = "";
+        Date time = null;
 
 
-        // Thread to send notification information to PC
-        new Thread(){
-            @Override
-            public void run() {
-                Socket socket = null;
-                BufferedWriter bw = null;
+        try {
+            // Put information into finals to show them in UI using post
+            title = extras.getString("android.title");
+            text = extras.getCharSequence("android.text").toString();
+            key = sbn.getKey();
+            time = Calendar.getInstance().getTime();
 
-                Settings settings = Settings.getInstance();
+        } catch(Exception e){
+            Log.e(TAG, e.getMessage());
+        }
+
+        if(!title.equals("") && !text.equals("") && !key.equals("")) {
+            final String title_final = title;
+            final String text_final = text;
+            final String key_final = key;
+            final Date time_final = time;
+
+            // Update Text in UI using post
+            MainActivity.txv_info.post(new Runnable() {
+                @Override
+                public void run() {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("Name: ");
+                    sb.append(applicationName);
+
+                    sb.append("\nTitle: ");
+                    sb.append(title_final);
+
+                    sb.append("\nText: ");
+                    sb.append(text_final);
+
+                    sb.append("\nDatum/Zeit: ");
+                    DateFormat dateFormat = new SimpleDateFormat("dd.MM hh:mm:ss", Locale.GERMAN);
+                    String strDate = dateFormat.format(time_final);
+                    sb.append(strDate);
+
+                    MainActivity.txv_info.setText(sb.toString());
+                }
+            });
 
 
-                try{
-                    socket = new Socket(settings.SERVER_IP,settings.SERVER_PORT);
+            // Thread to send notification information to PC
+            new Thread() {
+                @Override
+                public void run() {
+                    Socket socket = null;
+                    BufferedWriter bw = null;
 
-                    bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                    Settings settings = Settings.getInstance();
 
 
-                    StringBuilder textToSendSB = new StringBuilder();
+                    try {
+                        socket = new Socket(settings.SERVER_IP, settings.SERVER_PORT);
 
-                    textToSendSB.append("Package: ");
-                    textToSendSB.append(applicationName);
-                    textToSendSB.append("\nTitle: ");
-                    textToSendSB.append(title);
-                    textToSendSB.append("\nText: ");
-                    textToSendSB.append(text);
+                        bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+
+
+                        StringBuilder textToSendSB = new StringBuilder();
+
+                        textToSendSB.append("Package: ");
+                        textToSendSB.append(applicationName);
+                        textToSendSB.append("\nTitle: ");
+                        textToSendSB.append(title_final);
+                        textToSendSB.append("\nText: ");
+                        textToSendSB.append(text_final);
 
 
 
@@ -139,35 +157,32 @@ public class NotificationReceiver extends NotificationListenerService {
                     }
                     */
 
-                    // Send Plain Text
+                        // Send Plain Text
 
-                    bw.write(textToSendSB.toString());
+                        bw.write(textToSendSB.toString());
 
 
-                }
-                catch(Exception ex){
-                    Log.e(TAG, ex.getMessage());
-                }
-                finally{
-                    if(bw!=null){
-                        try{
-                            bw.close();
+                    } catch (Exception ex) {
+                        Log.e(TAG, ex.getMessage());
+                    } finally {
+                        if (bw != null) {
+                            try {
+                                bw.close();
+                            } catch (Exception ex) {
+                                Log.d(TAG, ex.getMessage());
+                            }
                         }
-                        catch(Exception ex){
-                            Log.d(TAG, ex.getMessage());
-                        }
-                    }
-                    if(socket!=null){
-                        try{
-                            socket.close();
-                        }
-                        catch(Exception ex){
-                            Log.d(TAG, ex.getMessage());
+                        if (socket != null) {
+                            try {
+                                socket.close();
+                            } catch (Exception ex) {
+                                Log.d(TAG, ex.getMessage());
+                            }
                         }
                     }
                 }
-            }
-        }.start();
+            }.start();
+        }
     }
 
     @Override

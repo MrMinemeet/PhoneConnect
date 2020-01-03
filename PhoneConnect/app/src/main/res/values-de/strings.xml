@@ -3,4 +3,9 @@
     <string name="app_name">PhoneConnect</string>
     <string name="create_new_link">Neu Verbinden</string>
     <string name="open_notification_permissions">Berechigungseinstellungen öffnen</string>
+    <string name="Dark_theme">Dunkles Design</string>
+    <string name="Light_theme">Helles Design</string>
+    <string name="set_by_system">Systemeinstellungen</string>
+    <string name="Themes">Designs</string>
+    <string name="Theme_set">Design gesetzt</string>
 </resources>
