@@ -8,4 +8,9 @@
     <string name="set_by_system">Set by System</string>
     <string name="Themes">Themes</string>
     <string name="Theme_set">Theme set</string>
+    <string name="permissions_needed">Permission needed</string>
+    <string name="notification_listener_permission_text">To work properly this app requires permissions to get incoming notifications.</string>
+    <string name="allow">Allow</string>
+    <string name="deny">Deny</string>
+    <string name="not_working_correctly_without_permission">App won\'t work properly without this permission!</string>
 </resources>

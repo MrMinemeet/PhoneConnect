@@ -8,4 +8,9 @@
     <string name="set_by_system">Systemeinstellungen</string>
     <string name="Themes">Designs</string>
     <string name="Theme_set">Design gesetzt</string>
+    <string name="permissions_needed">Berechtigung benötigt</string>
+    <string name="notification_listener_permission_text">Um Richtig zu funktionieren wird eine Berechtigung benötigt um Notifications erkennen zu können.</string>
+    <string name="allow">Erlauben</string>
+    <string name="deny">Ablehnen</string>
+    <string name="not_working_correctly_without_permission">App wird ohne diese Berechtigung nicht vernünftig funktionieren.</string>
 </resources>
