@@ -123,21 +123,21 @@ public class MainActivity extends AppCompatActivity {
 
     private AlertDialog buildNotificationServiceAlertDialog(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Notification Permission needed");
-        alertDialogBuilder.setMessage("To work properly this app requires permissions to get incoming notifications.");
+        alertDialogBuilder.setTitle(R.string.permissions_needed);
+        alertDialogBuilder.setMessage(R.string.notification_listener_permission_text);
         alertDialogBuilder.setCancelable(false);
-        alertDialogBuilder.setPositiveButton("Allow",
+        alertDialogBuilder.setPositiveButton(R.string.allow,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         startActivity(new Intent(ACTION_NOTIFICATION_LISTENER_SETTINGS));
                     }
                 });
-        alertDialogBuilder.setNegativeButton("Deny",
+        alertDialogBuilder.setNegativeButton(R.string.deny,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // If you choose to not enable the notification listener
                         // the app. will not work as expected
-                        Toast.makeText(MainActivity.this , "App won't work properly without this permission!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this , R.string.not_working_correctly_without_permission, Toast.LENGTH_LONG).show();
                     }
                 });
         return(alertDialogBuilder.create());
